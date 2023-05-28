@@ -204,6 +204,46 @@ class ATest extends TestCase
     }
 
     /**
+     * @covers ::groupBy
+     */
+    public function testGroupBy()
+    {
+        // Test with non-empty array
+        $array = [
+            ['color' => 'red', 'value' => 'apple'],
+            ['color' => 'yellow', 'value' => 'banana'],
+            ['color' => 'red', 'value' => 'cherry'],
+            ['color' => 'yellow', 'value' => 'lemon']
+        ];
+        $key = 'color';
+        $expectedResult = [
+            'red' => [
+                ['color' => 'red', 'value' => 'apple'],
+                ['color' => 'red', 'value' => 'cherry']
+            ],
+            'yellow' => [
+                ['color' => 'yellow', 'value' => 'banana'],
+                ['color' => 'yellow', 'value' => 'lemon']
+            ]
+        ];
+        $this->assertEquals($expectedResult, A::groupBy($key, $array));
+
+        // Test with empty array
+        $array = [];
+        $expectedResult = [];
+        $this->assertEquals($expectedResult, A::groupBy($key, $array));
+
+        // Test with key that doesn't exist in the array
+        $key = 'size';
+        $array = [
+            ['color' => 'red', 'value' => 'apple'],
+            ['color' => 'yellow', 'value' => 'banana']
+        ];
+        $expectedResult = [];
+        $this->assertEquals($expectedResult, A::groupBy($key, $array));
+    }
+
+    /**
      * @covers ::has
      */
     public function testHas()
@@ -873,6 +913,28 @@ class ATest extends TestCase
         $this->assertSame(1, array_search('img2.png', array_column($natural, 'file')));
         $this->assertSame(2, array_search('img10.png', array_column($natural, 'file')));
         $this->assertSame(3, array_search('img12.png', array_column($natural, 'file')));
+    }
+
+    /**
+     * @covers ::isList
+     */
+    public function testIsList()
+    {
+        // Test with a sequential array
+        $seqArray = ['red', 'yellow', 'green'];
+        $this->assertTrue(A::isList($seqArray));
+
+        // Test with an associative array
+        $assocArray = ['apple' => 'red', 'banana' => 'yellow', 'kiwi' => 'green'];
+        $this->assertFalse(A::isList($assocArray));
+
+        // Test with an array with missing indices
+        $missingIndicesArray = [0 => 'red', 2 => 'yellow', 3 => 'green'];
+        $this->assertFalse(A::isList($missingIndicesArray));
+
+        // Test with an empty array
+        $emptyArray = [];
+        $this->assertTrue(A::isList($emptyArray));
     }
 
     /**
