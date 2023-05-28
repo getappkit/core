@@ -116,8 +116,6 @@ class A
         return array_unique(array_diff_assoc($array, array_unique($array)));
     }
 
-
-
     /**
      * Divide an array into two arrays. One with keys and the other with values.
      *
@@ -309,21 +307,6 @@ class A
     public static function has(array $array, $value, bool $strict = false): bool
     {
         return in_array($value, $array, $strict);
-    }
-
-    /**
-     * Determines if an array is associative.
-     *
-     * An array is "associative" if it doesn't have sequential numerical keys beginning with zero.
-     *
-     * @param  array  $array
-     * @return bool
-     */
-    public static function isAssoc(array $array): bool
-    {
-        $keys = array_keys($array);
-
-        return array_keys($keys) !== $keys;
     }
 
     /**
