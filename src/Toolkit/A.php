@@ -813,7 +813,8 @@ class A
      */
     public static function startsWith(string $needle, array $haystack): ?array
     {
-        return preg_grep("/^$needle/i", $haystack) ?? null;
+        $result = preg_grep("/^$needle/i", $haystack);
+        return empty($result) ? null : $result;
     }
 
 

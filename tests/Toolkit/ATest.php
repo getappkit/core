@@ -867,6 +867,25 @@ class ATest extends TestCase
         $this->assertSame(['a' => 'test'], A::nestByKeys('test', ['a']));
         $this->assertSame(['a' => ['b' => 'test']], A::nestByKeys('test', ['a', 'b']));
     }
+    /**
+     * @covers ::startsWith
+     */
+    public function testStartsWith()
+    {
+        // Test with non-empty array and valid needle
+        $haystack = ['apple', 'banana', 'date', 'apricot'];
+        $needle = 'ap';
+        $expectedResult = [0 => 'apple', 3 => 'apricot'];
+        $this->assertEquals($expectedResult, A::startsWith($needle, $haystack));
+
+        // Test with non-empty array and needle that doesn't exist in the array
+        $needle = 'kiwi';
+        $this->assertEquals(null, A::startsWith($needle, $haystack));
+
+        // Test with empty array
+        $haystack = [];
+        $this->assertEquals(null, A::startsWith($needle, $haystack));
+    }
 
     /**
      * @covers ::sort
