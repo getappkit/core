@@ -449,6 +449,32 @@ class ATest extends TestCase
     }
 
     /**
+     * @covers ::search
+     */
+    public function testSearch()
+    {
+        // The key exists at top level
+        $array = ['apple' => 'fruit', 'carrot' => 'vegetable'];
+        $key = 'apple';
+        $expectedResult = 'fruit';
+        $this->assertEquals($expectedResult, A::search($key, $array));
+
+        // The key exists in nested array
+        $array = ['fruits' => ['apple' => 'red', 'banana' => 'yellow'], 'vegetables' => ['carrot' => 'orange']];
+        $key = 'banana';
+        $expectedResult = 'yellow';
+        $this->assertEquals($expectedResult, A::search($key, $array));
+
+        // The key doesn't exist
+        $key = 'pear';
+        $this->assertNull(A::search($key, $array));
+
+        // Empty array
+        $array = [];
+        $this->assertNull(A::search($key, $array));
+    }
+
+    /**
      * @covers ::slice
      */
     public function testSlice()

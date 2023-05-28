@@ -700,9 +700,9 @@ class A
      *
      * @param $key
      * @param array $array
-     * @return array|null
+     * @return mixed
      */
-    public static function search($key, array $array): ?array
+    public static function search($key, array $array): mixed
     {
         if (isset($array[$key])) {
             return $array[$key];
