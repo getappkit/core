@@ -117,6 +117,27 @@ class ATest extends TestCase
     }
 
     /**
+     * @covers ::duplicates
+     */
+    public function testDuplicates()
+    {
+        // Test with an array containing duplicates
+        $array = ['apple', 'banana', 'apple', 'date', 'banana', 'kiwi'];
+        $expectedResult = ['apple', 'banana'];
+        $this->assertEquals($expectedResult, array_values(A::duplicates($array)));
+
+        // Test with an array not containing duplicates
+        $array = ['apple', 'banana', 'date', 'kiwi'];
+        $expectedResult = [];
+        $this->assertEquals($expectedResult, A::duplicates($array));
+
+        // Test with an empty array
+        $array = [];
+        $expectedResult = [];
+        $this->assertEquals($expectedResult, A::duplicates($array));
+    }
+
+    /**
      * @covers ::get
      */
     public function testGet()
