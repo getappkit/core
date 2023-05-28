@@ -336,7 +336,8 @@ class A
      */
     public static function isList(array $array): bool
     {
-        return ! self::isAssoc($array);
+        if ($array === []) return true; // Consider empty array as list
+        return array_keys($array) === range(0, count($array) - 1);
     }
 
     /**
