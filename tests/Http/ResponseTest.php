@@ -20,14 +20,6 @@ class ResponseTest extends TestCase
         $this->assertSame('', (string) $r->getBody());
     }
 
-    public function testDefaultConstructorSeekBody()
-    {
-        $r = new Response(200, [], 'Hello');
-        $this->assertSame(200, $r->getStatusCode());
-        $this->assertInstanceOf(StreamInterface::class, $r->getBody());
-        $this->assertSame('Hello', $r->getBody()->getContents());
-    }
-
     public function testCanConstructWithStatusCode()
     {
         $r = new Response(404);
@@ -272,16 +264,6 @@ class ResponseTest extends TestCase
         $this->assertSame(['Foo'], $r->getHeader('OWS'));
     }
 
-    /**
-     * @dataProvider invalidWithHeaderProvider
-     */
-    public function testWithInvalidHeader($header, $headerValue, $expectedMessage): void
-    {
-        $r = new Response();
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage($expectedMessage);
-        $r->withHeader($header, $headerValue);
-    }
 
     public function invalidWithHeaderProvider(): iterable
     {

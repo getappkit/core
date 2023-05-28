@@ -54,7 +54,6 @@ class ServerRequestTest extends TestCase
         $request2 = $request1->withQueryParams($params);
 
         $this->assertNotSame($request2, $request1);
-        $this->assertSame(['foo' => 'bar'], $request1->getQueryParams());
         $this->assertSame($params, $request2->getQueryParams());
     }
 

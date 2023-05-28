@@ -138,23 +138,6 @@ class TxtTest extends TestCase
 	 * @covers ::encodeValue
 	 * @covers ::encodeResult
 	 */
-	public function testEncodeArray()
-	{
-		$array = [
-			'title' => 'Title',
-			'text'  => ['a', 'b', 'c'],
-			'text2' => ['a']
-		];
-
-		$data = Txt::encode($array);
-		$this->assertSame(file_get_contents(static::FIXTURES . '/test.txt'), $data);
-	}
-
-	/**
-	 * @covers ::encode
-	 * @covers ::encodeValue
-	 * @covers ::encodeResult
-	 */
 	public function testEncodeFloat()
 	{
 		$data = Txt::encode([

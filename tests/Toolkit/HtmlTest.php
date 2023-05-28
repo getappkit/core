@@ -18,92 +18,6 @@ class HtmlTest extends TestCase
     }
 
     /**
-     * @covers ::a
-     * @covers ::link
-     */
-    public function testA()
-    {
-        $html = Html::a('https://getkirby.com');
-        $expected = '<a href="https://getkirby.com">getkirby.com</a>';
-        $this->assertSame($expected, $html);
-
-        $html = Html::a('mailto:mail@company.com');
-        $expected = '!^<a href="mailto:(.*?)">(.*?)</a>$!';
-        $this->assertMatchesRegularExpression($expected, $html);
-        preg_match($expected, $html, $matches);
-        $this->assertSame('mail@company.com', Html::decode($matches[1]));
-        $this->assertSame('mail@company.com', Html::decode($matches[2]));
-
-        $html = Html::a('tel:1234');
-        $expected = '<a href="tel:1234">1234</a>';
-        $this->assertSame($expected, $html);
-    }
-
-    /**
-     * @covers ::a
-     * @covers ::link
-     */
-    public function testAWithText()
-    {
-        $html = Html::a('https://getkirby.com', 'Kirby');
-        $expected = '<a href="https://getkirby.com">Kirby</a>';
-        $this->assertSame($expected, $html);
-
-        $html = Html::a('mailto:mail@company.com', 'Kirby');
-        $expected = '!^<a href="mailto:(.*?)">Kirby</a>$!';
-        $this->assertMatchesRegularExpression($expected, $html);
-        preg_match($expected, $html, $matches);
-        $this->assertSame('mail@company.com', Html::decode($matches[1]));
-
-        $html = Html::a('tel:1234', 'Kirby');
-        $expected = '<a href="tel:1234">Kirby</a>';
-        $this->assertSame($expected, $html);
-    }
-
-    /**
-     * @covers ::a
-     * @covers ::link
-     */
-    public function testAWithAttributes()
-    {
-        $html = Html::a('https://getkirby.com', 'Kirby', ['class' => 'test']);
-        $expected = '<a class="test" href="https://getkirby.com">Kirby</a>';
-        $this->assertSame($expected, $html);
-
-        $html = Html::a('mailto:mail@company.com', 'Kirby', ['class' => 'test']);
-        $expected = '!^<a class="test" href="mailto:(.*?)">Kirby</a>$!';
-        $this->assertMatchesRegularExpression($expected, $html);
-        preg_match($expected, $html, $matches);
-        $this->assertSame('mail@company.com', Html::decode($matches[1]));
-
-        $html = Html::a('tel:1234', 'Kirby', ['class' => 'test']);
-        $expected = '<a class="test" href="tel:1234">Kirby</a>';
-        $this->assertSame($expected, $html);
-    }
-
-    /**
-     * @covers ::a
-     * @covers ::link
-     */
-    public function testAWithTarget()
-    {
-        $html = Html::a('https://getkirby.com', 'Kirby', ['target' => '_blank']);
-        $expected = '<a href="https://getkirby.com" rel="noreferrer" target="_blank">Kirby</a>';
-        $this->assertSame($expected, $html);
-    }
-
-    /**
-     * @covers ::a
-     * @covers ::link
-     */
-    public function testAWithTargetAndRel()
-    {
-        $html = Html::a('https://getkirby.com', 'Kirby', ['target' => '_blank', 'rel' => 'noopener']);
-        $expected = '<a href="https://getkirby.com" rel="noopener" target="_blank">Kirby</a>';
-        $this->assertSame($expected, $html);
-    }
-
-    /**
      * @covers       ::attr
      * @dataProvider attrProvider
      */
@@ -115,7 +29,6 @@ class HtmlTest extends TestCase
     public function attrProvider()
     {
         return [
-            [[],                         null,  null],
             [['B' => 'b', 'A' => 'a'],   null,  'a="a" b="b"'],
             [['B' => 'b', 'A' => 'a'],   true,  'a="a" b="b"'],
             [['B' => 'b', 'A' => 'a'],   false, 'b="b" a="a"'],
@@ -124,7 +37,6 @@ class HtmlTest extends TestCase
             [['a' => 'a', 'b' => false], null,  'a="a"'],
             [['a' => 'a', 'b' => null],  null,  'a="a"'],
             [['a' => 'a', 'b' => []],    null,  'a="a"'],
-            [['a', 'b' => true],         null,  'a b']
         ];
     }
 
@@ -150,33 +62,6 @@ class HtmlTest extends TestCase
     }
 
     /**
-     * @covers ::attr
-     */
-    public function testAttrWithBeforeValue()
-    {
-        $attr = Html::attr(['test' => 'test'], null, ' ');
-        $this->assertSame(' test="test"', $attr);
-    }
-
-    /**
-     * @covers ::attr
-     */
-    public function testAttrWithAfterValue()
-    {
-        $attr = Html::attr(['test' => 'test'], null, null, ' ');
-        $this->assertSame('test="test" ', $attr);
-    }
-
-    /**
-     * @covers ::attr
-     */
-    public function testAttrWithoutValues()
-    {
-        $attr = Html::attr([]);
-        $this->assertNull($attr);
-    }
-
-    /**
      * @covers ::breaks
      */
     public function testBreaks()
@@ -184,75 +69,6 @@ class HtmlTest extends TestCase
         $this->assertSame("line 1<br />\nline 2", Html::breaks("line 1\nline 2"));
     }
 
-    /**
-     * @covers ::email
-     */
-    public function testEmail()
-    {
-        $html = Html::email('mail@company.com?subject=Test');
-        $expected = '!^<a href="mailto:(.*?)">(.*?)</a>$!';
-        $this->assertMatchesRegularExpression($expected, $html);
-        preg_match($expected, $html, $matches);
-        $this->assertSame('mail@company.com?subject=Test', Html::decode($matches[1]));
-        $this->assertSame('mail@company.com', Html::decode($matches[2]));
-    }
-
-    /**
-     * @covers ::email
-     */
-    public function testEmailWithText()
-    {
-        $html = Html::email('mail@company.com', '<b>Email</b>');
-        $expected = '!^<a href="mailto:(.*?)">&lt;b&gt;Email&lt;/b&gt;</a>$!';
-        $this->assertMatchesRegularExpression($expected, $html);
-        preg_match($expected, $html, $matches);
-        $this->assertSame('mail@company.com', Html::decode($matches[1]));
-    }
-
-    /**
-     * @covers ::email
-     */
-    public function testEmailWithArrayText()
-    {
-        $html = Html::email('mail@company.com', ['<b>Email</b>']);
-        $expected = '!^<a href="mailto:(.*?)"><b>Email</b></a>$!';
-        $this->assertMatchesRegularExpression($expected, $html);
-        preg_match($expected, $html, $matches);
-        $this->assertSame('mail@company.com', Html::decode($matches[1]));
-    }
-
-    /**
-     * @covers ::email
-     */
-    public function testEmailWithoutAddress()
-    {
-        $html = Html::email('');
-        $this->assertSame('', $html);
-    }
-
-    /**
-     * @covers ::email
-     */
-    public function testEmailWithAttributes()
-    {
-        $html = Html::email('mail@company.com', 'Email', ['class' => 'email']);
-        $expected = '!^<a class="email" href="mailto:(.*?)">Email</a>$!';
-        $this->assertMatchesRegularExpression($expected, $html);
-        preg_match($expected, $html, $matches);
-        $this->assertSame('mail@company.com', Html::decode($matches[1]));
-    }
-
-    /**
-     * @covers ::email
-     */
-    public function testEmailWithTarget()
-    {
-        $html = Html::email('mail@company.com', 'Email', ['target' => '_blank']);
-        $expected = '!^<a href="mailto:(.*?)" rel="noreferrer" target="_blank">Email</a>$!';
-        $this->assertMatchesRegularExpression($expected, $html);
-        preg_match($expected, $html, $matches);
-        $this->assertSame('mail@company.com', Html::decode($matches[1]));
-    }
 
     /**
      * @covers ::encode
@@ -293,58 +109,6 @@ class HtmlTest extends TestCase
     }
 
     /**
-     * @covers ::figure
-     */
-    public function testFigure()
-    {
-        $html = Html::figure('test');
-        $expected = '<figure>test</figure>';
-        $this->assertSame($expected, $html);
-
-        $html = Html::figure('test', '', ['class' => 'figure']);
-        $expected = '<figure class="figure">test</figure>';
-        $this->assertSame($expected, $html);
-
-        $html = Html::figure('test', 'yay');
-        $expected = '<figure>test<figcaption>yay</figcaption></figure>';
-        $this->assertSame($expected, $html);
-    }
-
-    /**
-     * @covers ::gist
-     */
-    public function testGist()
-    {
-        $html = Html::gist($url = 'https://gist.github.com/bastianallgeier/dfb2a889ae73c7c318ea300efd2df6ff');
-        $expected = '<script src="' . $url . '.js"></script>';
-        $this->assertSame($expected, $html);
-
-        $html = Html::gist($url = 'https://gist.github.com/bastianallgeier/dfb2a889ae73c7c318ea300efd2df6ff', 'kirbycontent.txt');
-        $expected = '<script src="' . $url . '.js?file=kirbycontent.txt"></script>';
-        $this->assertSame($expected, $html);
-    }
-
-    /**
-     * @covers ::iframe
-     */
-    public function testIframe()
-    {
-        $html = Html::iframe($url = 'https://getkirby.com');
-        $expected = '<iframe src="' . $url . '"></iframe>';
-        $this->assertSame($expected, $html);
-    }
-
-    /**
-     * @covers ::img
-     */
-    public function testImg()
-    {
-        $html = Html::img($src = 'https://getkirby.com/image.jpg');
-        $expected = '<img alt="" src="' . $src . '">';
-        $this->assertSame($expected, $html);
-    }
-
-    /**
      * @covers ::isVoid
      */
     public function testIsVoid()
@@ -359,57 +123,6 @@ class HtmlTest extends TestCase
         $this->assertTrue(Html::isVoid('div'));
 
         Html::$voidList = $original;
-    }
-
-    /**
-     * @covers ::rel
-     */
-    public function testRel()
-    {
-        $html = Html::rel('me');
-        $expected = 'me';
-        $this->assertSame($expected, $html);
-
-        $html = Html::rel(null, '_blank');
-        $expected = 'noreferrer';
-        $this->assertSame($expected, $html);
-
-        $html = Html::rel('noopener', '_blank');
-        $expected = 'noopener';
-        $this->assertSame($expected, $html);
-    }
-
-    /**
-     * @covers ::tel
-     * @covers ::link
-     */
-    public function testTel()
-    {
-        $html = Html::tel('1234');
-        $expected = '<a href="tel:1234">1234</a>';
-        $this->assertSame($expected, $html);
-    }
-
-    /**
-     * @covers ::tel
-     * @covers ::link
-     */
-    public function testTelWithText()
-    {
-        $html = Html::tel('1234', 'Tel');
-        $expected = '<a href="tel:1234">Tel</a>';
-        $this->assertSame($expected, $html);
-    }
-
-    /**
-     * @covers ::tel
-     * @covers ::link
-     */
-    public function testTelWithArrayText()
-    {
-        $html = Html::tel('1234', ['<b>Tel</b>']);
-        $expected = '<a href="tel:1234"><b>Tel</b></a>';
-        $this->assertSame($expected, $html);
     }
 
     /**

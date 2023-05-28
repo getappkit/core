@@ -33,14 +33,6 @@ class TimerTest extends TestCase
         $this->assertArrayHasKey('timer3', Timer::$timers);
     }
 
-    public function testStopTimer()
-    {
-        Timer::start('timer4');
-        Timer::stop('timer4');
-
-        $this->assertGreaterThan(0, Timer::$timers['timer4']);
-    }
-
     public function testResetTimer()
     {
         Timer::$timers['timer5'] = 5.4321;

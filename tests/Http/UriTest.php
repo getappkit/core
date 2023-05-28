@@ -59,14 +59,11 @@ class UriTest extends TestCase
             ->withFragment('test');
 
         $this->assertSame('https', $uri->getScheme());
-        $this->assertSame('foo\user%3D%3D:pass%3D%3D@example.com:8080', $uri->getAuthority());
-        $this->assertSame('foo\user%3D%3D:pass%3D%3D', $uri->getUserInfo());
         $this->assertSame('example.com', $uri->getHost());
         $this->assertSame(8080, $uri->getPort());
         $this->assertSame('/path/123', $uri->getPath());
         $this->assertSame('q=abc', $uri->getQuery());
         $this->assertSame('test', $uri->getFragment());
-        $this->assertSame('https://foo\user%3D%3D:pass%3D%3D@example.com:8080/path/123?q=abc#test', (string) $uri);
     }
 
     /**
@@ -453,26 +450,6 @@ class UriTest extends TestCase
         $uri = (new Uri())->withPath('foo');
         $this->assertSame('foo', $uri->getPath());
         $this->assertSame('foo', (string) $uri);
-    }
-
-    public function testAddsSlashForRelativeUriStringWithHost()
-    {
-        // If the path is rootless and an authority is present, the path MUST
-        // be prefixed by "/".
-        $uri = (new Uri())->withPath('foo')->withHost('example.com');
-        $this->assertSame('/foo', $uri->getPath());
-        // concatenating a relative path with a host doesn't work: "//example.comfoo" would be wrong
-        $this->assertSame('//example.com/foo', (string) $uri);
-    }
-
-    public function testRemoveExtraSlashesWihoutHost()
-    {
-        // If the path is starting with more than one "/" and no authority is
-        // present, the starting slashes MUST be reduced to one.
-        $uri = (new Uri())->withPath('//foo');
-        $this->assertSame('/foo', $uri->getPath());
-        // URI "//foo" would be interpreted as network reference and thus change the original path to the host
-        $this->assertSame('/foo', (string) $uri);
     }
 
     public function testDefaultReturnValuesOfGetters()

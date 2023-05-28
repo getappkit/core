@@ -19,6 +19,7 @@
 		"ext-sqlite3": "*",
 		"psr/http-server-handler": "^1.0",
 		"psr/http-server-middleware": "^1.0",
+		"psr/http-message": "^2.0",
 		"psr/http-factory": "^1.0",
 		"illuminate/database": "^8.0",
 		"illuminate/console": "^8.0",

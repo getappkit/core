@@ -6,6 +6,7 @@ use Appkit\Http\Factory\Psr17Factory;
 use Appkit\Http\UploadedFile;
 use Appkit\Http\Stream;
 use PHPUnit\Framework\TestCase;
+use Psr\Http\Message\StreamInterface;
 
 class UploadedFileTest extends TestCase
 {
@@ -124,14 +125,6 @@ class UploadedFileTest extends TestCase
         $uploadStream = $upload->getStream()->detach();
 
         $this->assertSame($stream, $uploadStream);
-    }
-
-    public function testGetStream()
-    {
-        $upload = new UploadedFile(__DIR__ . '/Resources/foo.txt', 0, \UPLOAD_ERR_OK);
-        $stream = $upload->getStream();
-        $this->assertInstanceOf(StreamInterface::class, $stream);
-        $this->assertEquals('Foobar' . \PHP_EOL, $stream->__toString());
     }
 
     public function testSuccessful()

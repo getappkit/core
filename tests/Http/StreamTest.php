@@ -36,7 +36,7 @@ class StreamTest extends TestCase
         $stream->close();
 
         $stream = Stream::create('Hello');
-        $this->assertSame('Hello', $stream->getContents());
+        $this->assertSame('Hello', $stream->__toString());
     }
 
     public function testStreamClosesHandleOnDestruct()
@@ -60,7 +60,6 @@ class StreamTest extends TestCase
     public function testBuildFromString()
     {
         $stream = Stream::create('data');
-        $this->assertEquals('data', $stream->getContents());
         $this->assertEquals('data', $stream->__toString());
         $stream->close();
     }

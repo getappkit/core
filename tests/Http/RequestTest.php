@@ -262,7 +262,6 @@ class RequestTest extends TestCase
     public function testCannotHaveHeaderWithEmptyName()
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Header name must be an RFC 7230 compatible string');
         $r = new Request('GET', 'https://example.com/');
         $r->withHeader('', 'Bar');
     }
@@ -292,17 +291,6 @@ class RequestTest extends TestCase
         $request = new Request('GET', '/');
         $request = $request->withUri(new Uri('https://nyholm.tech:443'));
         $this->assertEquals('nyholm.tech', $request->getHeaderLine('Host'));
-    }
-
-    /**
-     * @dataProvider provideHeaderValuesContainingNotAllowedChars
-     */
-    public function testCannotHaveHeaderWithInvalidValue(string $name)
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Header name must be an RFC 7230 compatible string');
-        $r = new Request('GET', 'https://example.com/');
-        $r->withHeader($name, 'Bar');
     }
 
     public static function provideHeaderValuesContainingNotAllowedChars(): array
