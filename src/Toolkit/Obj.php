@@ -2,6 +2,7 @@
 
 namespace Appkit\Toolkit;
 
+use InvalidArgumentException;
 use stdClass;
 
 /**
@@ -62,14 +63,27 @@ class Obj extends stdClass
     }
 
     /**
-     * Property Getter
+     * Gets one or multiple properties of the object
      *
-     * @param string $property
-     * @param mixed $fallback
-     * @return mixed
+     * @param mixed $fallback If multiple properties are requested:
+     *                        Associative array of fallback values per key
      */
-    public function get(string $property, $fallback = null)
+    public function get(string|array $property, $fallback = null)
     {
+        if (is_array($property)) {
+            $fallback ??= [];
+
+            if (is_array($fallback) === false) {
+                throw new InvalidArgumentException('The fallback value must be an array when getting multiple properties');
+            }
+
+            $result = [];
+            foreach ($property as $key) {
+                $result[$key] = $this->$key ?? $fallback[$key] ?? null;
+            }
+            return $result;
+        }
+
         return $this->$property ?? $fallback;
     }
 
