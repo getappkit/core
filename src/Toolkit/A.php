@@ -80,7 +80,8 @@ class A
      */
     public static function contains(string $needle, array $haystack): ?array
     {
-        return preg_grep("/$needle/i", $haystack) ?? null;
+        $result = preg_grep("/$needle/i", $haystack);
+        return $result ? array_values($result) : null;
     }
 
     /**

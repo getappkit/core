@@ -91,6 +91,32 @@ class ATest extends TestCase
     }
 
     /**
+     * @covers ::contains
+     */
+    public function testContains()
+    {
+        // Haystack contains the needle
+        $haystack = ['apple', 'banana', 'cherry', 'date', 'elderberry'];
+        $needle = 'a';
+        $expectedResult = ['apple', 'banana', 'date'];
+        $this->assertEquals($expectedResult, A::contains($needle, $haystack));
+
+        // Haystack doesn't contain the needle
+        $needle = 'z';
+        $this->assertNull(A::contains($needle, $haystack));
+
+        // Empty haystack
+        $haystack = [];
+        $this->assertNull(A::contains($needle, $haystack));
+
+        // Needle is a case-insensitive match
+        $haystack = ['apple', 'banana', 'cherry', 'date', 'elderberry'];
+        $needle = 'A';
+        $expectedResult = ['apple', 'banana', 'date'];
+        $this->assertEquals($expectedResult, A::contains($needle, $haystack));
+    }
+
+    /**
      * @covers ::get
      */
     public function testGet()
