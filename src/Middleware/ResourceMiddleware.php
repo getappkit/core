@@ -11,28 +11,26 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 class ResourceMiddleware implements MiddlewareInterface
 {
-    protected array $routes = [];
-    protected array $resources = [];
+    protected array $routes;
 
-    public function __construct(array $resources = [], array $routes = [])
+    public function __construct()
     {
-        $this->resources = $resources;
-        $this->routes = array_merge($this->routes(), $routes);
-
+        $this->routes = Load::routes('resource.php');
     }
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
+        $resources  = Config::get('resources');
         $path = $request->getUri()->getPath();
         $method = $request->getMethod();
 
         // If no resources are defined, pass the request to the next middleware
-        if (empty($this->resources)) {
+        if (empty($resources)) {
             return $handler->handle($request);
         }
 
         // Loop through the resources
-        foreach ($this->resources as $baseUri => $resource) {
+        foreach ($resources as $baseUri => $resource) {
             foreach ($this->routes as $route) {
                 $pattern = '/' . $baseUri . $route['pattern'];
                 $pattern = rtrim($pattern, '/');
@@ -46,47 +44,5 @@ class ResourceMiddleware implements MiddlewareInterface
         }
 
         return $handler->handle($request);
-    }
-
-    private function routes(): array
-    {
-        return [
-            [
-                'pattern' => '/',
-                'method' => 'GET',
-                'action' => 'index'
-            ],
-            [
-                'pattern' => '/',
-                'method' => 'POST',
-                'action' => 'store'
-            ],
-            [
-                'pattern' => '/create',
-                'method' => 'GET',
-                'action' => 'create'
-            ],
-            [
-                'pattern' => '/(\d+)',
-                'method' => 'GET',
-                'action' => 'show'
-            ],
-            [
-                'pattern' => '/(\d+)/edit',
-                'method' => 'GET',
-                'action' => 'edit'
-            ],
-            [
-                'pattern' => '/(\d+)',
-                'method' => 'PUT',
-                'action' => 'update'
-            ],
-            [
-                'pattern' => '/(\d+)',
-                'method' => 'DELETE',
-                'action' => 'destroy'
-            ],
-        ];
-
     }
 }
