@@ -8,6 +8,7 @@ use Appkit\Http\Emitter;
 use Appkit\Http\Response;
 use Appkit\Http\Stream;
 use Appkit\Middleware\ErrorHandlerMiddleware;
+use Appkit\Toolkit\Timer;
 use Closure;
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Events\Dispatcher;
@@ -45,6 +46,7 @@ final class App implements RequestHandlerInterface
 
     public function __construct($config = [])
     {
+        Timer::start('app');
         $this->bootApp($config);
         $this->bootEloquent();
         App::$instance = $this;
@@ -168,16 +170,10 @@ final class App implements RequestHandlerInterface
 
         $response = $this->handle($this->request());
         $this->response = $response;
+        Timer::stop('app');
         $emitter = new Emitter();
-        $emitter->emit($this->debug() ? $response->withHeader('App', self::timer() . ' ms') : $response);
+        $emitter->emit($this->debug() ? $response->withHeader('App', Timer::get('app') . ' ms') : $response);
     }
-
-    public static function timer($decimals = 2): string
-    {
-        $time = microtime(true) - START_TIMER;
-        return number_format($time * 1000, $decimals);
-    }
-
 
     /**
      * Set the event dispatcher instance to be used by connections.
