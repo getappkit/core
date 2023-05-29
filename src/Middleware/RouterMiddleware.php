@@ -27,10 +27,11 @@ use Psr\Http\Server\RequestHandlerInterface;
 class RouterMiddleware implements MiddlewareInterface
 {
     protected array $routes;
+    protected string $errorFilePath;
 
-    public function __construct()
+    public function __construct($routes = [])
     {
-        $this->routes = Load::routes('web.php');
+        $this->routes = $routes;
     }
 
 
@@ -56,8 +57,7 @@ class RouterMiddleware implements MiddlewareInterface
 
     public function pageNotFound(ServerRequestInterface $request): Response
     {
-        $file = Roots::ERRORS . DS . '404.php';
-        return (new Response(404, ['Content-Type' =>'text/html'], Stream::create(Tpl::load($file))));
+        return (new Response(404, ['Content-Type' =>'text/html'], Stream::create(Tpl::load($this->errorFilePath))));
     }
 
 

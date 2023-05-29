@@ -2,7 +2,7 @@
 	"name": "getappkit/core",
 	"description": "Appkit Core",
 	"license": "MIT",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"authors": [
 		{
 			"name": "Maarten Thiebou"
@@ -21,11 +21,7 @@
 		"psr/http-server-middleware": "^1.0",
 		"psr/http-message": "^2.0",
 		"psr/http-factory": "^1.0",
-		"illuminate/database": "^8.0",
-		"illuminate/console": "^8.0",
-		"illuminate/events": "^8.0",
-		"filp/whoops": "^2.15",
-		"gregwar/image": "^2.1"
+		"filp/whoops": "^2.15"
     },
 
 	"require-dev": {
