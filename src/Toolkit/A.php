@@ -374,8 +374,6 @@ class A
         return array_combine($keys, $array);
     }
 
-
-
     /**
      * Returns the last element of an array
      *
@@ -386,8 +384,6 @@ class A
     {
         return array_pop($array);
     }
-
-
 
     /**
      * A simple wrapper around array_map
@@ -845,15 +841,6 @@ class A
         return static::filter($array, function ($value, $key) use ($keys) {
             return in_array($key, $keys, true) === false;
         });
-    }
-
-
-    /**
-     * Filter the array using the given callback.
-     */
-    public static function where(array $array, callable $callback): array
-    {
-        return array_filter($array, $callback, ARRAY_FILTER_USE_BOTH);
     }
 
     /**
