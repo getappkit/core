@@ -36,7 +36,7 @@ use Throwable;
 final class App implements RequestHandlerInterface
 {
     protected static $instance;
-    public const VERSION = '0.0.1';
+    public const VERSION = '0.0.7';
     protected array $options;
     public ServerRequestInterface $request;
     private $middlewares;
