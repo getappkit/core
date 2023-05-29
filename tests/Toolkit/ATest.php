@@ -20,7 +20,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::append
+     * @covers \Appkit\Toolkit\A::append
      */
     public function testAppend()
     {
@@ -44,7 +44,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::apply
+     * @covers \Appkit\Toolkit\A::apply
      */
     public function testApply()
     {
@@ -79,7 +79,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::count
+     * @covers \Appkit\Toolkit\A::count
      */
     public function testCount()
     {
@@ -91,7 +91,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::contains
+     * @covers \Appkit\Toolkit\A::contains
      */
     public function testContains()
     {
@@ -117,7 +117,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::duplicates
+     * @covers \Appkit\Toolkit\A::duplicates
      */
     public function testDuplicates()
     {
@@ -138,7 +138,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::get
+     * @covers \Appkit\Toolkit\A::get
      */
     public function testGet()
     {
@@ -172,7 +172,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::get
+     * @covers \Appkit\Toolkit\A::get
      */
     public function testGetWithDotNotation()
     {
@@ -211,7 +211,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::get
+     * @covers \Appkit\Toolkit\A::get
      */
     public function testGetWithNonexistingOptions()
     {
@@ -225,7 +225,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::groupBy
+     * @covers \Appkit\Toolkit\A::groupBy
      */
     public function testGroupBy()
     {
@@ -265,7 +265,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::has
+     * @covers \Appkit\Toolkit\A::has
      */
     public function testHas()
     {
@@ -278,7 +278,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::map
+     * @covers \Appkit\Toolkit\A::map
      */
     public function testMap()
     {
@@ -314,7 +314,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::merge
+     * @covers \Appkit\Toolkit\A::merge
      */
     public function testMerge()
     {
@@ -371,7 +371,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::merge
+     * @covers \Appkit\Toolkit\A::merge
      */
     public function testMergeMultiples()
     {
@@ -401,7 +401,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::merge
+     * @covers \Appkit\Toolkit\A::merge
      */
     public function testMergeModes()
     {
@@ -456,7 +456,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::pluck
+     * @covers \Appkit\Toolkit\A::pluck
      */
     public function testPluck()
     {
@@ -474,7 +474,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::shuffle
+     * @covers \Appkit\Toolkit\A::shuffle
      */
     public function testShuffle()
     {
@@ -487,7 +487,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::reduce
+     * @covers \Appkit\Toolkit\A::reduce
      */
     public function testReduce()
     {
@@ -510,7 +510,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::search
+     * @covers \Appkit\Toolkit\A::search
      */
     public function testSearch()
     {
@@ -536,7 +536,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::slice
+     * @covers \Appkit\Toolkit\A::slice
      */
     public function testSlice()
     {
@@ -550,7 +550,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::sum
+     * @covers \Appkit\Toolkit\A::sum
      */
     public function testSum()
     {
@@ -563,7 +563,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::first
+     * @covers \Appkit\Toolkit\A::first
      */
     public function testFirst()
     {
@@ -571,7 +571,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::last
+     * @covers \Appkit\Toolkit\A::last
      */
     public function testLast()
     {
@@ -579,7 +579,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::random
+     * @covers \Appkit\Toolkit\A::random
      */
     public function testRandom()
     {
@@ -607,7 +607,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::fill
+     * @covers \Appkit\Toolkit\A::fill
      */
     public function testFill()
     {
@@ -649,7 +649,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::move
+     * @covers \Appkit\Toolkit\A::move
      */
     public function testMove()
     {
@@ -671,7 +671,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::move
+     * @covers \Appkit\Toolkit\A::move
      */
     public function testMoveWithInvalidFrom()
     {
@@ -682,7 +682,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::move
+     * @covers \Appkit\Toolkit\A::move
      */
     public function testMoveWithInvalidTo()
     {
@@ -693,7 +693,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::missing
+     * @covers \Appkit\Toolkit\A::missing
      */
     public function testMissing()
     {
@@ -704,7 +704,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::nest
+     * @covers \Appkit\Toolkit\A::nest
      */
     public function testNest()
     {
@@ -880,7 +880,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::nestByKeys
+     * @covers \Appkit\Toolkit\A::nestByKeys
      */
     public function testNestByKeys()
     {
@@ -889,7 +889,7 @@ class ATest extends TestCase
         $this->assertSame(['a' => ['b' => 'test']], A::nestByKeys('test', ['a', 'b']));
     }
     /**
-     * @covers ::startsWith
+     * @covers \Appkit\Toolkit\A::startsWith
      */
     public function testStartsWith()
     {
@@ -909,7 +909,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::sort
+     * @covers \Appkit\Toolkit\A::sort
      */
     public function testSort()
     {
@@ -956,7 +956,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::isList
+     * @covers \Appkit\Toolkit\A::isList
      */
     public function testIsList()
     {
@@ -978,7 +978,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::isAssociative
+     * @covers \Appkit\Toolkit\A::isAssociative
      */
     public function testIsAssociative()
     {
@@ -990,7 +990,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::average
+     * @covers \Appkit\Toolkit\A::average
      */
     public function testAverage()
     {
@@ -1003,7 +1003,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::extend
+     * @covers \Appkit\Toolkit\A::extend
      */
     public function testExtend()
     {
@@ -1046,7 +1046,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::join
+     * @covers \Appkit\Toolkit\A::join
      */
     public function testJoin()
     {
@@ -1060,7 +1060,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::keyBy
+     * @covers \Appkit\Toolkit\A::keyBy
      */
     public function testKeyBy()
     {
@@ -1099,7 +1099,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::keyBy
+     * @covers \Appkit\Toolkit\A::keyBy
      */
     public function testKeyByWithNonexistentKeys()
     {
@@ -1116,7 +1116,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::update
+     * @covers \Appkit\Toolkit\A::update
      */
     public function testUpdate()
     {
@@ -1137,7 +1137,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::wrap
+     * @covers \Appkit\Toolkit\A::wrap
      */
     public function testWrap()
     {
@@ -1153,7 +1153,7 @@ class ATest extends TestCase
 
 
     /**
-     * @covers ::filter
+     * @covers \Appkit\Toolkit\A::filter
      */
     public function testFilter()
     {
@@ -1182,7 +1182,7 @@ class ATest extends TestCase
     }
 
     /**
-     * @covers ::without
+     * @covers \Appkit\Toolkit\A::without
      */
     public function testWithout()
     {

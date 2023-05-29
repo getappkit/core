@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 class HtmlTest extends TestCase
 {
     /**
-     * @covers ::__callStatic()
+     * @covers \Appkit\Toolkit\Html::__callStatic()
      */
     public function testCallStatic()
     {
@@ -18,7 +18,7 @@ class HtmlTest extends TestCase
     }
 
     /**
-     * @covers       ::attr
+     * @covers \Appkit\Toolkit\Html::attr
      * @dataProvider attrProvider
      */
     public function testAttr($input, $value, $expected)
@@ -41,7 +41,7 @@ class HtmlTest extends TestCase
     }
 
     /**
-     * @covers ::attr
+     * @covers \Appkit\Toolkit\Html::attr
      */
     public function testAttrArrayValue()
     {
@@ -62,7 +62,7 @@ class HtmlTest extends TestCase
     }
 
     /**
-     * @covers ::breaks
+     * @covers \Appkit\Toolkit\Html::breaks
      */
     public function testBreaks()
     {
@@ -71,7 +71,7 @@ class HtmlTest extends TestCase
 
 
     /**
-     * @covers ::encode
+     * @covers \Appkit\Toolkit\Html::encode
      */
     public function testEncode()
     {
@@ -92,7 +92,7 @@ class HtmlTest extends TestCase
     }
 
     /**
-     * @covers ::entities
+     * @covers \Appkit\Toolkit\Html::entities
      */
     public function testEntities()
     {
@@ -109,7 +109,7 @@ class HtmlTest extends TestCase
     }
 
     /**
-     * @covers ::isVoid
+     * @covers \Appkit\Toolkit\Html::isVoid
      */
     public function testIsVoid()
     {
@@ -126,7 +126,7 @@ class HtmlTest extends TestCase
     }
 
     /**
-     * @covers ::tag
+     * @covers \Appkit\Toolkit\Html::tag
      */
     public function testTag()
     {
@@ -170,7 +170,7 @@ class HtmlTest extends TestCase
     }
 
     /**
-     * @covers       ::value
+     * @covers \Appkit\Toolkit\Html::value
      * @dataProvider valueProvider
      */
     public function testValue($input, $expected)

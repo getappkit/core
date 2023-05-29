@@ -22,6 +22,10 @@ class VTest extends TestCase
         $this->assertTrue(V::blank(''));
         $this->assertTrue(V::blank(' '));
         $this->assertTrue(V::blank('  '));
+        $this->assertTrue(V::blank([]));
+        $this->assertFalse(V::blank([null, '']));
+        $this->assertFalse(V::blank(1));
+        $this->assertFalse(V::blank(true));
     }
 
     public function testCamelCase()

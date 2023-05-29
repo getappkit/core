@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 class ObjTest extends TestCase
 {
     /**
-     * @covers ::__call
+     * @covers \Appkit\Toolkit\Obj::__call
      */
     public function test__call()
     {
@@ -18,7 +18,7 @@ class ObjTest extends TestCase
     }
 
     /**
-     * @covers ::__get
+     * @covers \Appkit\Toolkit\Obj::__get
      */
     public function test__get()
     {
@@ -27,7 +27,7 @@ class ObjTest extends TestCase
     }
 
     /**
-     * @covers ::get
+     * @covers \Appkit\Toolkit\Obj::get
      */
     public function testGetMultiple()
     {
@@ -49,7 +49,7 @@ class ObjTest extends TestCase
     }
 
     /**
-     * @covers ::toArray
+     * @covers \Appkit\Toolkit\Obj::toArray
      */
     public function testToArray()
     {
@@ -58,7 +58,7 @@ class ObjTest extends TestCase
     }
 
     /**
-     * @covers ::toArray
+     * @covers \Appkit\Toolkit\Obj::toArray
      */
     public function testToArrayWithChild()
     {
@@ -76,7 +76,7 @@ class ObjTest extends TestCase
     }
 
     /**
-     * @covers ::toJson
+     * @covers \Appkit\Toolkit\Obj::toJson
      */
     public function testToJson()
     {
@@ -85,7 +85,7 @@ class ObjTest extends TestCase
     }
 
     /**
-     * @covers ::__debugInfo
+     * @covers \Appkit\Toolkit\Obj::__debugInfo
      */
     public function test__debugInfo()
     {

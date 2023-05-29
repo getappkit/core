@@ -13,8 +13,8 @@ class SiloTest extends TestCase
     }
 
     /**
-     * @covers ::get
-     * @covers ::set
+     * @covers \Appkit\Toolkit\Silo::get
+     * @covers \Appkit\Toolkit\Silo::set
      */
     public function testSetAndGet()
     {
@@ -23,7 +23,7 @@ class SiloTest extends TestCase
     }
 
     /**
-     * @covers ::set
+     * @covers \Appkit\Toolkit\Silo::set
      */
     public function testSetArray()
     {
@@ -36,7 +36,7 @@ class SiloTest extends TestCase
     }
 
     /**
-     * @covers ::get
+     * @covers \Appkit\Toolkit\Silo::get
      */
     public function testGetArray()
     {
@@ -47,7 +47,7 @@ class SiloTest extends TestCase
     }
 
     /**
-     * @covers ::remove
+     * @covers \Appkit\Toolkit\Silo::remove
      */
     public function testRemoveByKey()
     {
@@ -58,7 +58,7 @@ class SiloTest extends TestCase
     }
 
     /**
-     * @covers ::remove
+     * @covers \Appkit\Toolkit\Silo::remove
      */
     public function testRemoveAll()
     {

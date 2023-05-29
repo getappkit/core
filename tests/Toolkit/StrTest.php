@@ -18,7 +18,7 @@ class StrTest extends TestCase
 
 
     /**
-     * @covers ::ascii
+     * @covers \Appkit\Toolkit\Str::ascii
      */
     public function testAscii()
     {
@@ -29,7 +29,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::after
+     * @covers \Appkit\Toolkit\Str::after
      */
     public function testAfter()
     {
@@ -52,7 +52,7 @@ class StrTest extends TestCase
 
 
     /**
-     * @covers ::before
+     * @covers \Appkit\Toolkit\Str::before
      */
     public function testBefore()
     {
@@ -71,7 +71,7 @@ class StrTest extends TestCase
 
 
     /**
-     * @covers ::between
+     * @covers \Appkit\Toolkit\Str::between
      */
     public function testBetween()
     {
@@ -81,7 +81,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::camel
+     * @covers \Appkit\Toolkit\Str::camel
      */
     public function testCamel()
     {
@@ -110,7 +110,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::contains
+     * @covers \Appkit\Toolkit\Str::contains
      */
     public function testContains()
     {
@@ -133,7 +133,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::convert
+     * @covers \Appkit\Toolkit\Str::convert
      */
     public function testConvert()
     {
@@ -151,7 +151,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::date
+     * @covers \Appkit\Toolkit\Str::date
      */
     public function testDate()
     {
@@ -173,7 +173,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::encode
+     * @covers \Appkit\Toolkit\Str::encode
      */
     public function testEncode()
     {
@@ -182,7 +182,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::encoding
+     * @covers \Appkit\Toolkit\Str::encoding
      */
     public function testEncoding()
     {
@@ -190,7 +190,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::endsWith
+     * @covers \Appkit\Toolkit\Str::endsWith
      */
     public function testEndsWith()
     {
@@ -212,7 +212,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::excerpt
+     * @covers \Appkit\Toolkit\Str::excerpt
      */
     public function testExcerpt()
     {
@@ -224,7 +224,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::excerpt
+     * @covers \Appkit\Toolkit\Str::excerpt
      */
     public function testExcerptWithoutChars()
     {
@@ -236,7 +236,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::excerpt
+     * @covers \Appkit\Toolkit\Str::excerpt
      */
     public function testExcerptWithZeroLength()
     {
@@ -247,7 +247,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::excerpt
+     * @covers \Appkit\Toolkit\Str::excerpt
      */
     public function testExcerptWithoutStripping()
     {
@@ -259,7 +259,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::excerpt
+     * @covers \Appkit\Toolkit\Str::excerpt
      */
     public function testExcerptWithDifferentRep()
     {
@@ -271,7 +271,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::excerpt
+     * @covers \Appkit\Toolkit\Str::excerpt
      */
     public function testExcerptWithSpaces()
     {
@@ -283,7 +283,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::excerpt
+     * @covers \Appkit\Toolkit\Str::excerpt
      */
     public function testExcerptWithLineBreaks()
     {
@@ -295,7 +295,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::excerpt
+     * @covers \Appkit\Toolkit\Str::excerpt
      */
     public function testExcerptWithUnicodeChars()
     {
@@ -307,7 +307,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::excerpt
+     * @covers \Appkit\Toolkit\Str::excerpt
      */
     public function testExcerptWithTagFollowedByInterpunctuation()
     {
@@ -320,7 +320,7 @@ class StrTest extends TestCase
 
 
     /**
-     * @covers ::from
+     * @covers \Appkit\Toolkit\Str::from
      */
     public function testFrom()
     {
@@ -350,7 +350,7 @@ class StrTest extends TestCase
 
 
     /**
-     * @covers ::increment
+     * @covers \Appkit\Toolkit\Str::increment
      */
     public function testIncrement()
     {
@@ -395,7 +395,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::kebab
+     * @covers \Appkit\Toolkit\Str::kebab
      */
     public function testKebab()
     {
@@ -407,7 +407,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::length
+     * @covers \Appkit\Toolkit\Str::length
      */
     public function testLength()
     {
@@ -418,7 +418,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::lower
+     * @covers \Appkit\Toolkit\Str::lower
      */
     public function testLower()
     {
@@ -427,7 +427,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::ltrim
+     * @covers \Appkit\Toolkit\Str::ltrim
      */
     public function testLtrim()
     {
@@ -437,7 +437,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::match
+     * @covers \Appkit\Toolkit\Str::match
      */
     public function testMatch()
     {
@@ -447,7 +447,7 @@ class StrTest extends TestCase
 
 
     /**
-     * @covers ::matches
+     * @covers \Appkit\Toolkit\Str::matches
      */
     public function testMatches()
     {
@@ -456,7 +456,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::matchAll
+     * @covers \Appkit\Toolkit\Str::matchAll
      */
     public function testMatchAll()
     {
@@ -476,7 +476,7 @@ class StrTest extends TestCase
 
 
     /**
-     * @covers ::position
+     * @covers \Appkit\Toolkit\Str::position
      */
     public function testPosition()
     {
@@ -497,7 +497,7 @@ class StrTest extends TestCase
 
 
     /**
-     * @covers ::query
+     * @covers \Appkit\Toolkit\Str::query
      */
     public function testQuery()
     {
@@ -506,7 +506,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::random
+     * @covers \Appkit\Toolkit\Str::random
      */
     public function testRandom()
     {
@@ -529,7 +529,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::replace
+     * @covers \Appkit\Toolkit\Str::replace
      */
     public function testReplaceInvalid3()
     {
@@ -539,7 +539,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::replacements
+     * @covers \Appkit\Toolkit\Str::replacements
      */
     public function testReplacements()
     {
@@ -583,7 +583,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::replacements
+     * @covers \Appkit\Toolkit\Str::replacements
      */
     public function testReplacementsInvalid()
     {
@@ -593,7 +593,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::replaceReplacements
+     * @covers \Appkit\Toolkit\Str::replaceReplacements
      */
     public function testReplaceReplacements()
     {
@@ -633,7 +633,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::replaceReplacements
+     * @covers \Appkit\Toolkit\Str::replaceReplacements
      */
     public function testReplaceReplacementsInvalid()
     {
@@ -657,7 +657,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::rtrim
+     * @covers \Appkit\Toolkit\Str::rtrim
      */
     public function testRtrim()
     {
@@ -667,7 +667,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::short
+     * @covers \Appkit\Toolkit\Str::short
      */
     public function testShort()
     {
@@ -696,7 +696,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::similarity
+     * @covers \Appkit\Toolkit\Str::similarity
      */
     public function testSimilarity()
     {
@@ -768,7 +768,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::slug
+     * @covers \Appkit\Toolkit\Str::slug
      */
     public function testSlug()
     {
@@ -819,7 +819,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::snake
+     * @covers \Appkit\Toolkit\Str::snake
      */
     public function testSnake()
     {
@@ -831,7 +831,7 @@ class StrTest extends TestCase
     }
 
     /**
-     * @covers ::split
+     * @covers \Appkit\Toolkit\Str::split
      */
     public function testSplit()
     {
@@ -858,7 +858,7 @@ EOT;
     }
 
     /**
-     * @covers ::startsWith
+     * @covers \Appkit\Toolkit\Str::startsWith
      */
     public function testStartsWith()
     {
@@ -880,7 +880,7 @@ EOT;
     }
 
     /**
-     * @covers ::studly
+     * @covers \Appkit\Toolkit\Str::studly
      */
     public function testStudly()
     {
@@ -901,7 +901,7 @@ EOT;
     }
 
     /**
-     * @covers ::substr
+     * @covers \Appkit\Toolkit\Str::substr
      */
     public function testSubstr()
     {
@@ -916,7 +916,7 @@ EOT;
     }
 
     /**
-     * @covers ::template
+     * @covers \Appkit\Toolkit\Str::template
      */
     public function testTemplate()
     {
@@ -948,7 +948,7 @@ EOT;
     }
 
     /**
-     * @covers ::toBytes
+     * @covers \Appkit\Toolkit\Str::toBytes
      */
     public function testToBytes()
     {
@@ -968,7 +968,7 @@ EOT;
     }
 
     /**
-     * @covers ::toType
+     * @covers \Appkit\Toolkit\Str::toType
      */
     public function testToType()
     {
@@ -1007,7 +1007,7 @@ EOT;
     }
 
     /**
-     * @covers ::trim
+     * @covers \Appkit\Toolkit\Str::trim
      */
     public function testTrim()
     {
@@ -1017,7 +1017,7 @@ EOT;
     }
 
     /**
-     * @covers ::ucfirst
+     * @covers \Appkit\Toolkit\Str::ucfirst
      */
     public function testUcfirst()
     {
@@ -1026,7 +1026,7 @@ EOT;
     }
 
     /**
-     * @covers ::ucwords
+     * @covers \Appkit\Toolkit\Str::ucwords
      */
     public function testUcwords()
     {
@@ -1036,7 +1036,7 @@ EOT;
     }
 
     /**
-     * @covers ::unhtml
+     * @covers \Appkit\Toolkit\Str::unhtml
      */
     public function testUnhtml()
     {
@@ -1045,7 +1045,7 @@ EOT;
     }
 
     /**
-     * @covers ::until
+     * @covers \Appkit\Toolkit\Str::until
      */
     public function testUntil()
     {
@@ -1063,7 +1063,7 @@ EOT;
     }
 
     /**
-     * @covers ::upper
+     * @covers \Appkit\Toolkit\Str::upper
      */
     public function testUpper()
     {
@@ -1072,7 +1072,7 @@ EOT;
     }
 
     /**
-     * @covers ::wordCount
+     * @covers \Appkit\Toolkit\Str::wordCount
      */
     public function testWordCount()
     {
@@ -1084,7 +1084,7 @@ EOT;
         $this->assertEquals(2, Str::wordCount("I'm sorry")); // test punctuation
     }
     /**
-     * @covers ::words
+     * @covers \Appkit\Toolkit\Str::words
      */
     public function testWords()
     {
@@ -1098,7 +1098,7 @@ EOT;
     }
 
     /**
-     * @covers ::widont
+     * @covers \Appkit\Toolkit\Str::widont
      */
     public function testWidont()
     {

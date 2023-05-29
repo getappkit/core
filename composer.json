@@ -43,7 +43,7 @@
 		],
 		"analyze:composer": "composer validate --strict --no-check-version --no-check-all",
 		"test": "phpunit tests",
-		"test:coverage": "phpunit --stderr --coverage-html=tests/coverage"
+		"test:coverage": "phpunit tests --stderr --coverage-html=tests/coverage"
 	},
 
 	"minimum-stability": "dev",

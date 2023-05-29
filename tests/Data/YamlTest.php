@@ -13,8 +13,6 @@ use stdClass;
 class YamlTest extends TestCase
 {
 	/**
-	 * @covers ::encode
-	 * @covers ::decode
 	 * @covers \Appkit\Data\Yaml::encode
 	 * @covers \Appkit\Data\Yaml::decode
 	 */
@@ -42,8 +40,7 @@ class YamlTest extends TestCase
 	}
 
 	/**
-	 * @covers ::decode
-	 * @covers \Kirby\Data\YamlSpyc::decode
+	 * @covers \Appkit\Data\Yaml::decode
 	 */
 	public function testDecodeInvalid1()
 	{
@@ -54,8 +51,7 @@ class YamlTest extends TestCase
 	}
 
 	/**
-	 * @covers ::decode
-	 * @covers \Kirby\Data\YamlSpyc::decode
+	 * @covers \Appkit\Data\Yaml::decode
 	 */
 	public function testDecodeInvalid2()
 	{
@@ -66,8 +62,7 @@ class YamlTest extends TestCase
 	}
 
 	/**
-	 * @covers ::encode
-	 * @covers \Kirby\Data\YamlSpyc::encode
+	 * @covers \Appkit\Data\Yaml::encode
 	 */
 	public function testEncodeFloat()
 	{
@@ -79,8 +74,7 @@ class YamlTest extends TestCase
 	}
 
 	/**
-	 * @covers ::encode
-	 * @covers \Kirby\Data\YamlSpyc::encode
+	 * @covers \Appkit\Data\Yaml::encode
 	 */
 	public function testEncodeFloatWithNonUSLocale()
 	{
@@ -98,8 +92,7 @@ class YamlTest extends TestCase
 	}
 
 	/**
-	 * @covers ::encode
-	 * @covers \Kirby\Data\YamlSpyc::encode
+	 * @covers \Appkit\Data\Yaml::encode
 	 */
 	public function testEncodeNodeTypes()
 	{
