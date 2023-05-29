@@ -117,6 +117,59 @@ class ATest extends TestCase
     }
 
     /**
+     * @covers \Appkit\Toolkit\A::dot
+     */
+    public function testDot()
+    {
+        // Arrange
+        $inputArray = [
+            'key1' => 'value1',
+            'key2' => [
+                'subkey1' => 'subvalue1',
+                'subkey2' => [
+                    'subsubkey1' => 'subsubvalue1',
+                    'subsubkey2' => 'subsubvalue2',
+                ],
+            ],
+            'key3' => 'value3',
+        ];
+
+        $expectedResult = [
+            'key1' => 'value1',
+            'key2.subkey1' => 'subvalue1',
+            'key2.subkey2.subsubkey1' => 'subsubvalue1',
+            'key2.subkey2.subsubkey2' => 'subsubvalue2',
+            'key3' => 'value3',
+        ];
+
+        // Act
+        $result = A::dot($inputArray);
+
+        // Assert
+        $this->assertEquals($expectedResult, $result);
+    }
+
+    /**
+     * @covers \Appkit\Toolkit\A::divide
+     */
+    public function testDivide()
+    {
+        // Arrange
+        $inputArray = ['key1' => 'value1', 'key2' => 'value2', 'key3' => 'value3'];
+        $expectedKeys = ['key1', 'key2', 'key3'];
+        $expectedValues = ['value1', 'value2', 'value3'];
+
+        // Act
+        $result = A::divide($inputArray);
+        $resultKeys = $result[0];
+        $resultValues = $result[1];
+
+        // Assert
+        $this->assertEquals($expectedKeys, $resultKeys);
+        $this->assertEquals($expectedValues, $resultValues);
+    }
+
+    /**
      * @covers \Appkit\Toolkit\A::duplicates
      */
     public function testDuplicates()
@@ -1137,6 +1190,54 @@ class ATest extends TestCase
     }
 
     /**
+     * @covers \Appkit\Toolkit\A::query
+     */
+    public function testQueryMethod()
+    {
+        // Arrange
+        $input = ['name' => 'John Doe', 'email' => 'john@doe.com'];
+        $expectedOutput = 'name=John%20Doe&email=john%40doe.com';
+
+        // Act
+        $output = A::query($input);
+
+        // Assert
+        $this->assertEquals($expectedOutput, $output);
+    }
+
+    /**
+     * @covers \Appkit\Toolkit\A::query
+     */
+    public function testQueryMethodWithSpecialCharacters()
+    {
+        // Arrange
+        $input = ['param' => '$special@characters#'];
+        $expectedOutput = 'param=%24special%40characters%23';
+
+        // Act
+        $output = A::query($input);
+
+        // Assert
+        $this->assertEquals($expectedOutput, $output);
+    }
+
+    /**
+     * @covers \Appkit\Toolkit\A::query
+     */
+    public function testQueryMethodWithEmptyArray()
+    {
+        // Arrange
+        $input = [];
+        $expectedOutput = '';
+
+        // Act
+        $output = A::query($input);
+
+        // Assert
+        $this->assertEquals($expectedOutput, $output);
+    }
+
+    /**
      * @covers \Appkit\Toolkit\A::wrap
      */
     public function testWrap()
@@ -1179,6 +1280,54 @@ class ATest extends TestCase
             return $key > 0;
         });
         $this->assertSame([1 => 'dog', 2 => 'bird'], $result);
+    }
+
+    /**
+     * @covers \Appkit\Toolkit\A::unique
+     */
+    public function testUniqueMethodWithIntegers()
+    {
+        // Arrange
+        $input = [1, 2, 2, 3, 4, 4, 5];
+        $expectedOutput = [1, 2, 3, 4, 5];
+
+        // Act
+        $output = A::unique($input);
+
+        // Assert
+        $this->assertEquals($expectedOutput, array_values($output));
+    }
+
+    /**
+     * @covers \Appkit\Toolkit\A::unique
+     */
+    public function testUniqueMethodWithStrings()
+    {
+        // Arrange
+        $input = ["apple", "orange", "apple", "banana", "banana"];
+        $expectedOutput = ["apple", "orange", "banana"];
+
+        // Act
+        $output = A::unique($input);
+
+        // Assert
+        $this->assertEquals($expectedOutput, array_values($output));
+    }
+
+    /**
+     * @covers \Appkit\Toolkit\A::unique
+     */
+    public function testUniqueMethodWithEmptyArray()
+    {
+        // Arrange
+        $input = [];
+        $expectedOutput = [];
+
+        // Act
+        $output = A::unique($input);
+
+        // Assert
+        $this->assertEquals($expectedOutput, $output);
     }
 
     /**
