@@ -18,7 +18,7 @@ class Load
 {
     public static function config(string $file, bool $setConfig = false): array
     {
-        $config = include Roots::CONFIG . DS . $file;
+        $config = include Roots::CONFIG . '/' . $file;
         $config = is_array($config) ? $config : [];
         if ($setConfig && !empty($config)) {
             foreach ($config as $key => $value) {
@@ -30,7 +30,7 @@ class Load
 
     public static function routes(string $file): array
     {
-        $routes = include Roots::ROUTES . DS . $file;
+        $routes = include Roots::ROUTES . '/' . $file;
         $routes = is_array($routes) ? $routes : [];
         return $routes;
     }

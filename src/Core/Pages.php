@@ -61,7 +61,7 @@ class Pages
 
     private function setTemplates(): void
     {
-        $templates = glob(Roots::TEMPLATES . DS . '*.php');
+        $templates = glob(Roots::TEMPLATES . '/*.php');
         foreach ($templates as $template) {
             $template = basename($template, '.php');
             static::$templates[] = $template;

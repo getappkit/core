@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace Appkit\Core;
 
+use Appkit\Toolkit\Tpl;
 use Exception;
-use Modufolio\Toolkit\Tpl;
+
 use Throwable;
 
 /**
@@ -27,7 +28,7 @@ class Dispatch
         $controller = '\Appkit\\Controllers\\' . $controller. 'Controller';
 
         if (!class_exists($controller)) {
-            return Tpl::load(Roots::ERRORS . DS . '404.php');
+            return Tpl::load(Roots::ERRORS . '/404.php');
         }
 
         $method= self::getMethodFromAction($action);
@@ -35,7 +36,7 @@ class Dispatch
         $controller_object = new $controller();
 
         if (!is_callable([$controller_object, $method])) {
-            return Tpl::load(Roots::ERRORS . DS . '404.php');
+            return Tpl::load(Roots::ERRORS . '/404.php');
         }
 
         return $controller_object->$method($params);
